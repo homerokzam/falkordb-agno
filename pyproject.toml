@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "falkordb-agno"
+description = "GraphRAG over FalkorDB as an Agno Knowledge, with a full Ontology Lifecycle"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.14"
+authors = [{ name = "Homero Batista Kzam" }]
+keywords = ["graphrag", "falkordb", "agno", "knowledge-graph", "ontology", "rag"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dynamic = ["version", "dependencies"]
+
+[project.urls]
+Homepage = "https://github.com/homerokzam/falkordb-agno"
+Issues = "https://github.com/homerokzam/falkordb-agno/issues"
+
+[tool.setuptools.dynamic]
+version = { attr = "falkordb_agno.__version__" }
+dependencies = { file = ["requirements.txt"] }
+
+# Packaging metadata only: dependencies stay in requirements*.txt, so uv must not lock or sync the project
+[tool.uv]
+managed = false
+
+[tool.setuptools.packages.find]
+include = ["falkordb_agno*"]
